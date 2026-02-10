@@ -5,13 +5,16 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "genokit"
 version = "0.0.1"
-description = "A small genomics toolkit (CLI + tests)."
+description = "Small genomics toolkit (CLI + tests)."
 readme = "README.md"
 requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest"]
 
 [project.scripts]
 genokit = "genokit.cli:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["src"]
