@@ -1,0 +1,9 @@
+Acceptance Criteria
+- Load any normal FASTA file and trust the output
+- Supports multiple sequences
+- Supports blank lines
+- support lowercase bases
+
+Expectation:
+Should be able to point this tool at a FASTA file from NCBI, Ensembl or a lab and it should work
+
