@@ -1,85 +1,42 @@
-# genokit
-Genomics toolkit (CLI + tests).
+# Genokit A Minimal Genomics Command Line Toolkit
+A lightweight python CLI toolkit for working with DNA sequence 
+files such as FASTA and FASTQ.
 
+This project focuses on building clean, well tested software for 
+reading DNA data files and computing simple statistics about the 
+sequences they contain.
 
-# Phase 1
+The goal is to understand how genomic data is structured and how 
+researchers evaluate basic properties of DNA sequence data.
+---
 
+## Current Phase: 1
 
-## Acceptance Criteria 1
-Expectation:
-Should be able to point this tool at a FASTA file from NCBI, Ensembl or a lab and it should work
+### Phase 1 Sequence I/O + basic stats for FASTA
+In phase 1, the tool reads a FASTA file and calculates simple statistics about the DNA sequences inside of them.
 
-Acceptance Criteria
-- Load any normal FASTA file and trust the output
-- Supports multiple sequences
-- Supports blank lines
-- support lowercase bases
+Planned features:
 
-Test: If I download a FASTA from the internet and run the parser, I get correct sequences without manual cleanup
+- Read FASTA files containing one or more DNA sequences
+- Support sequence split accross multiple lines
+- Calculate sequence length statistics (min, max, total, average)
+- Count unknown bases (N)
+- Compute N50 (how fragmented a genome assembly is)
+- Unit tested core functions
+
+#### See Phase1Plan.txt for acceptance criteria
 
 ---
-## Acceptance Criteria 2
-Expectation:
-Once data is parsed I dont want to have to think about FASTA quirks ever again
 
-Acceptance Criteria
-- id is stable and usable as a key
-- description is preserved if present
-- sequence is
-  - uppercase
-  - contains no whitespace
-  - ready for length / GC / motif analysis
+#### Why this matters in Genomics?
+When scientists sequence DNA, they often end up with many fragments rather than one perfect sequence. Before doing deeper analysis they check
+- How long the fragments are
+- Whether the base composition looks normal
+- How fragmented the assembly is
+- How many bases could not be determined
 
-Case: sequence before the header
-Test: I can do len(record.sequence) or record.sequence.count("G") without worrying about spaces, newlines, or lowercase
+This tool implements those checks from scratch in order to understand how real genomic data is evaluated
 
 ---
-## Acceptance Criteria 3
-Expectation:
-If the file is malformed I want to know immediately and not get wrong results
-
-Acceptance Criteria
-- If data starts before a >, stop
-- Raises ValueError
-- Message clearly explains what is wrong
-
-Test: If I pass a broken file the program will refuse to run
 
 
----
-## Acceptance Criteria 4
-Expectation: Weird but legitimate FASTA files shouldn't break the program
-
-Acceptance Criteria
-- Record exists
-- sequence == ""
-- No crash
-
-Case: header with no sequence
-Test: Pipeline continues running and I can decide how to handle empty sequences later
-
----
-## Acceptance Criteria 5
-Expectation
-This shouldnt load a 3gb genome into memory all at once
-
-Acceptance Criteria
-- parse_fasta() should be an iterator/generator
-- Records are yielded one by one
-
-test: Can loop parse_fasta("genome.fa"):
-
----
-## Acceptance Criteria 6
-Expectation
-Before trusting stats I want proof that the file is being read correctly
-
-Acceptance criteria
-- genokit gasta-stats file.fasta
-  - successfully loads file
-  - prints
-    - number of records
-    - first record id
-    - first record length
-
-Test: I can immediately see whether the file was parsed correctly
