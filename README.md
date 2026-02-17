@@ -8,8 +8,8 @@ sequences they contain.
 
 The goal is to understand how genomic data is structured and how 
 researchers evaluate basic properties of DNA sequence data.
----
 
+---
 ## Current Phase: 1
 
 ### Phase 1 Sequence I/O + basic stats for FASTA
@@ -18,7 +18,7 @@ In phase 1, the tool reads a FASTA file and calculates simple statistics about t
 Planned features:
 
 - Read FASTA files containing one or more DNA sequences
-- Support sequence split accross multiple lines
+- Support sequence split across multiple lines
 - Calculate sequence length statistics (min, max, total, average)
 - Count unknown bases (N)
 - Compute N50 (how fragmented a genome assembly is)
@@ -27,16 +27,11 @@ Planned features:
 #### See Phase1Plan.txt for acceptance criteria
 
 ---
+## Command Line Usage
 
-#### Why this matters in Genomics?
-When scientists sequence DNA, they often end up with many fragments rather than one perfect sequence. Before doing deeper analysis they check
-- How long the fragments are
-- Whether the base composition looks normal
-- How fragmented the assembly is
-- How many bases could not be determined
+Genokit is designed as aa command line program with subcommands.
 
-This tool implements those checks from scratch in order to understand how real genomic data is evaluated
-
----
-
-
+Commands:
+- genokit --help: Display help information about the tool and a list of subcommands
+- genokit --version: Display the current installed version of Genokit
+- genokit fasta-stats filename.fasta: (TODO)Reads a FASTA file and computes basic sequence statistics

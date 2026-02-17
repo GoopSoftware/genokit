@@ -18,22 +18,14 @@ def build_parser() -> argparse.ArgumentParser:
 
     fasta = subparsers.add_parser("fasta-stats", help="Placeholder FASTA stats command")
     fasta.add_argument("path", help="Path to FASTA file (not read yet)")
-
+    fasta.set_defaults(func=cmd_fasta_stats)
 
     return parser
 
 def main(argv=None):
     parser = build_parser()
-    try:
-        args = parser.parse_args(argv)
-    except SystemExit as e:
-        return e.code if isinstance(e.code, int) else 0
-
-    if args.command == "fasta-stats":
-        print("TODO")
-        return 0
-
-    return 1
+    args = parser.parse_args(argv)
+    return args.func(args)
 
 
 if __name__ == "__main__":
