@@ -1,3 +1,4 @@
+import pytest
 from genokit.cli import main
 
 
@@ -6,8 +7,11 @@ def test_import_genokit():
 
 
 def test_help_returns_zero(capsys):
-    code = main(["--help"])
-    assert code == 0
+    with pytest.raises(SystemExit) as exc:
+        main(["--help"])
+
+    assert exc.value.code == 0
+
     out = capsys.readouterr().out
     assert "genokit" in out
     assert "fasta-stats" in out
