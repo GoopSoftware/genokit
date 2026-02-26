@@ -27,6 +27,32 @@ Planned features:
 #### See Phase1Plan.txt for acceptance criteria
 
 ---
+
+## Installation Instructions
+
+### Requirements
+
+| Requirement | Version |
+|------------|----------|
+| Python     | 3.10+    |
+| pip        | Latest   |
+
+---
+
+### Setup Steps
+
+| Step | Command |
+|------|---------|
+| 1. Clone repository | `git clone https://github.com/GoopSoftware/genokit` |
+| 2. Enter project directory | `cd genokit` |
+| 3. Create virtual environment | `python -m venv .venv` |
+| 4. Activate (Windows) | `.venv\Scripts\activate.ps1` |
+| 4. Activate (Mac/Linux) | `source .venv/bin/activate` |
+| 5. Install Genokit | `pip install -e .` |
+| 6. Verify installation | `genokit --version` |
+
+
+---
 ## Command Line Usage
 
 Genokit is designed as aa command line program with subcommands.
