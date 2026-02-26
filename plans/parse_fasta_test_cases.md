@@ -1,4 +1,4 @@
-## FASTA Parser – Test Cases
+## fasta_parser() – Test Cases
 
 | Precondition | Action | Expected Result | Notes |
 |--------------|--------|----------------|-------|
