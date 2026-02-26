@@ -54,7 +54,7 @@ Test: Pipeline continues running and I can decide how to handle empty sequences 
 ---
 ## Acceptance Criteria 5
 Expectation
-This shouldnt load a 3gb genome into memory all at once
+This shouldn't load a 3gb genome into memory all at once
 
 Acceptance Criteria
 - parse_fasta() should be an iterator/generator
@@ -68,7 +68,7 @@ Expectation
 Before trusting stats I want proof that the file is being read correctly
 
 Acceptance criteria
-- genokit gasta-stats file.fasta
+- genokit fasta-stats file.fasta
   - successfully loads file
   - prints
     - number of records
