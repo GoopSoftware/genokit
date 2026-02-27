@@ -27,7 +27,12 @@ Planned features:
 #### See Phase1Plan.txt for acceptance criteria
 
 ---
+## Architecture
 
+![FASTA UML](plans/UMLGenokit.png)
+
+
+---
 ## Installation Instructions
 
 ### Requirements
@@ -38,6 +43,8 @@ Planned features:
 | pip        | Latest   |
 
 ---
+
+
 
 ### Setup Steps
 
